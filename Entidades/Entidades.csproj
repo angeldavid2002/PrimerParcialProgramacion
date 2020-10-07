@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Afiliado.cs" />
+    <Compile Include="AfiliadoContributivo.cs" />
+    <Compile Include="AfiliadoSubsidiado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
