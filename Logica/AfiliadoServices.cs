@@ -107,5 +107,25 @@ namespace Logica
                 return "ocurrio un error: " + e.Message;
             }
         }
+        public string ModificarEdad(int numeroLiquidacionConsulta, int nuevaEdad)
+        {
+            try
+            {
+                if (afiliadoRepositorio.ConsultarTodos().Any())
+                {
+                    afiliadoRepositorio.Modificar(numeroLiquidacionConsulta, nuevaEdad);
+                    return "se realizo la operacion con exito";
+                }
+                else
+                {
+                    return "no hay elementos en la lista";
+                }
+            }
+            catch (Exception e)
+            {
+
+                return "ocurrio un error: "+e;
+            }
+        }
     }
 }

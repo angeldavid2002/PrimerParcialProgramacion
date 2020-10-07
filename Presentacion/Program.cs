@@ -22,6 +22,8 @@ namespace Presentacion
                 Console.WriteLine("1)registrar nuevo afiliado");
                 Console.WriteLine("2)mostrar afiliados");
                 Console.WriteLine("3)eliminar un afiliado por numero de liquidacion");
+                Console.WriteLine("4)modificar afiliado");
+                Console.WriteLine("5)salir");
                 opcion = Convert.ToInt32(Console.ReadLine());
                 switch (opcion)
                 {
@@ -36,10 +38,13 @@ namespace Presentacion
                     case 3:
                         EliminarAfiliado();
                         break;
+                    case 4:
+                        ModificarAfiliado();
+                        break;
                     default:
                         break;
                 }
-            } while (opcion != 4);
+            } while (opcion != 5);
         }
         static void RegistrarAfiliacion()
         {
@@ -111,20 +116,37 @@ namespace Presentacion
         static void EliminarAfiliado()
         {
             Console.Clear();
-            if (afiliadoServices.ConsultarTodos().afiliaciones != null)
+            if (afiliadoServices.ConsultarTodos().afiliaciones.Any())
             {
                 Console.WriteLine("LISTA DE DATOS AL MOMENTO");
                 MostrarDatos();
-                int identificaionEliminar;
+                int numeroLiquidacionEliminar;
                 Console.Write("\ndigite la identificacion de la liquidacion a eliminar: ");
-                identificaionEliminar = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine(afiliadoServices.EliminarLiquidacion(identificaionEliminar));
+                numeroLiquidacionEliminar = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(afiliadoServices.EliminarLiquidacion(numeroLiquidacionEliminar));
                 Console.WriteLine("---LISTA DE DATOS AL ACTUALIZADA---");
                 MostrarDatos();
             }
             else
             {
                 Console.WriteLine("no hay elementos en la lista");
+            }
+        }
+        static void ModificarAfiliado()
+        {
+            Console.Clear();
+            if (afiliadoServices.ConsultarTodos().afiliaciones.Any())
+            {
+                Console.WriteLine("LISTA DE DATOS AL MOMENTO");
+                MostrarDatos();
+                int numeroLiquidacionConsulta, nuevaEdad;
+                Console.Write("\ndigite la identificacion de la liquidacion a modificar: ");
+                numeroLiquidacionConsulta = Convert.ToInt32(Console.ReadLine());
+                Console.Write("digite la nueva edad: ");
+                nuevaEdad = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(afiliadoServices.ModificarEdad(numeroLiquidacionConsulta,nuevaEdad));
+                Console.WriteLine("---LISTA DE DATOS AL ACTUALIZADA---");
+                MostrarDatos();
             }
         }
     }

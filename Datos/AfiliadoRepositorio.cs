@@ -102,6 +102,24 @@ namespace Datos
                 }
             }
         }
-
+        public void Modificar(int numeroLiquidacionConsulta,int nuevaEdad)
+        {
+            List<Afiliado> afiliaciones = ConsultarTodos();
+            FileStream file = new FileStream(FileName, FileMode.Create);
+            file.Close();
+            foreach (var item in afiliaciones)
+            {
+                if (EsEncontrado(item.numeroLiquidacion,numeroLiquidacionConsulta))
+                {
+                    item.edad = nuevaEdad;
+                    item.CalcularLiquidacionAfiliacion();
+                    Guardar(item);
+                }
+                else
+                {
+                    Guardar(item);
+                }
+            }
+        }
     }
 }
