@@ -20,6 +20,7 @@ namespace Presentacion
             afiliadoContributivo.sexo = Convert.ToChar(Console.ReadLine());
             Console.Write("digite su edad: ");
             afiliadoContributivo.edad = Convert.ToInt32(Console.ReadLine());
+            afiliadoContributivo.liquidacionAfiliacion = afiliadoContributivo.CalcularLiquidacionAfiliacion();
             Console.Write(afiliadoContributivo.ImprimirDatos());
             Console.WriteLine("---AFILIACION SUBSIDIADA---");
             Afiliado afiliadoSubsidiado = new AfiliadoSubsidiado();
@@ -29,6 +30,7 @@ namespace Presentacion
             afiliadoSubsidiado.sexo = Convert.ToChar(Console.ReadLine());
             Console.Write("digite su edad: ");
             afiliadoSubsidiado.edad = Convert.ToInt32(Console.ReadLine());
+            afiliadoSubsidiado.liquidacionAfiliacion = afiliadoSubsidiado.CalcularLiquidacionAfiliacion();
             Console.Write(afiliadoSubsidiado.ImprimirDatos());
         }
     }
