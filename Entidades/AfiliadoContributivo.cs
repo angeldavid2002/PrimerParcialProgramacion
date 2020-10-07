@@ -36,7 +36,8 @@ namespace Entidades
                 "numero de liquidacion: "+ numeroLiquidacion+"\n"+
                 "identificacion del afiliado: "+ identificacionAfiliado+"\n"+
                 "nombre: "+ nombre1Afiliado+" " + nombre2Afiliado + " "+
-                apellido1Afiliado+" "+ apellido2Afiliado+"\n";
+                apellido1Afiliado+" "+ apellido2Afiliado+"\n"+
+                "sexo: "+ sexo+"\n";
         }
         public override double CalcularLiquidacionAfiliacion()
         {
