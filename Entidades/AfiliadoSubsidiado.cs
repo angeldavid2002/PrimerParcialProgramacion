@@ -7,7 +7,7 @@ using Entidades;
 
 namespace Entidades
 {
-    class AfiliadoSubsidiado : Afiliado
+    public class AfiliadoSubsidiado : Afiliado
     {
         public AfiliadoSubsidiado()
         {
@@ -15,13 +15,27 @@ namespace Entidades
             this.liquidacionAfiliacion = 0;
             this.primaAdicional = 0;
             this.valorUPCDiaria = 2000;
+            this.edad = 0;
+            this.numeroLiquidacion = 0;
+            this.identificacionAfiliado = string.Empty;
+            this.nombre1Afiliado = string.Empty;
+            this.nombre2Afiliado = string.Empty;
+            this.apellido1Afiliado = string.Empty;
+            this.apellido2Afiliado = string.Empty;
+            this.tipoAfiliacion = 'S';
         }
         public override string ImprimirDatos()
         {
-            return "dias de afiliacion: " + diasAfiliacion + "\n" +
+            return "Tipo afiliacion: "+tipoAfiliacion+"\n"+
+                "dias de afiliacion: " + diasAfiliacion + "\n" +
                 "liquidacion de afiliacion: " + liquidacionAfiliacion + "\n" +
                 "prima adicional: " + primaAdicional + "\n" +
-                "valor UPC diaria: " + valorUPCDiaria + "\n";
+                "valor UPC diaria: " + valorUPCDiaria + "\n" +
+                "edad: " + edad + "\n" +
+                "numero de liquidacion: " + numeroLiquidacion + "\n" +
+                "identificacion del afiliado: " + identificacionAfiliado + "\n" +
+                "nombre: " + nombre1Afiliado + " " + nombre2Afiliado + " " +
+                apellido1Afiliado + " " + apellido2Afiliado + "\n";
         }
         public override double CalcularLiquidacionAfiliacion()
         {

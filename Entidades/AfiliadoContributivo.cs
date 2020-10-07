@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class AfiliadoContributivo:Afiliado
+    public class AfiliadoContributivo:Afiliado
     {
 
         public AfiliadoContributivo()
@@ -16,14 +16,27 @@ namespace Entidades
             this.primaAdicional = 0;
             this.valorUPCDiaria = 2400;
             this.edad = 0;
+            this.numeroLiquidacion = 0;
+            this.identificacionAfiliado = string.Empty;
+            this.nombre1Afiliado = string.Empty;
+            this.nombre2Afiliado = string.Empty;
+            this.apellido1Afiliado = string.Empty;
+            this.apellido2Afiliado = string.Empty;
+            this.tipoAfiliacion = 'C';
         }
 
         public override string ImprimirDatos()
         {
-            return "dias de afiliacion: " + diasAfiliacion + "\n" +
+            return "tipo afiliacion: " + tipoAfiliacion + "\n" +
+                "dias de afiliacion: " + diasAfiliacion + "\n" +
                 "liquidacion de afiliacion: " + liquidacionAfiliacion + "\n" +
                 "prima adicional: " + primaAdicional + "\n" +
-                "valor UPC diaria: " + valorUPCDiaria + "\n";
+                "valor UPC diaria: " + valorUPCDiaria + "\n"+
+                "edad: "+edad+"\n"+
+                "numero de liquidacion: "+ numeroLiquidacion+"\n"+
+                "identificacion del afiliado: "+ identificacionAfiliado+"\n"+
+                "nombre: "+ nombre1Afiliado+" " + nombre2Afiliado + " "+
+                apellido1Afiliado+" "+ apellido2Afiliado+"\n";
         }
         public override double CalcularLiquidacionAfiliacion()
         {

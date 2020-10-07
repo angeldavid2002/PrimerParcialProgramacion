@@ -7,7 +7,7 @@ using Datos;
 using Entidades;
 namespace Logica
 {
-    public class Class1
+    public class AfiliadoServices
     {
     }
 }

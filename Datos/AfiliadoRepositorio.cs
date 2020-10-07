@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entidades;
+using System.IO;
 namespace Datos
 {
-    public class Class1
+    public class AfiliadoRepositorio
     {
+        
 
     }
 }
