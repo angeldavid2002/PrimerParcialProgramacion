@@ -85,7 +85,27 @@ namespace Logica
             {
                 return "ocurrio un error: "+e.Message;
             }
-            
+        }
+        public string EliminarLiquidacion(int identificaionConsulta)
+        {
+            try
+            {
+
+                if (afiliadoRepositorio.ConsultarTodos() != null)
+                {
+                    afiliadoRepositorio.Eliminar(identificaionConsulta);
+                    return "se elimino la liquidacion exitosamente";
+                }
+                else
+                {
+                    return "no se encontraron elementos";
+                }
+
+            }
+            catch (Exception e)
+            {
+                return "ocurrio un error: " + e.Message;
+            }
         }
     }
 }

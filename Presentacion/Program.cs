@@ -21,7 +21,7 @@ namespace Presentacion
                 Console.WriteLine("---MENU PRINCIPAL---");
                 Console.WriteLine("1)registrar nuevo afiliado");
                 Console.WriteLine("2)mostrar afiliados");
-                Console.WriteLine("3)mostrar liquidaciones");
+                Console.WriteLine("3)eliminar un afiliado por numero de liquidacion");
                 opcion = Convert.ToInt32(Console.ReadLine());
                 switch (opcion)
                 {
@@ -30,10 +30,16 @@ namespace Presentacion
                         afiliadoServices.Guardar(afiliado);
                         break;
                     case 2:
+                        Console.Clear();
                         MostrarDatos();
                         break;
+                    case 3:
+                        EliminarAfiliado();
+                        break;
+                    default:
+                        break;
                 }
-            } while (opcion != 3);
+            } while (opcion != 4);
         }
         static void RegistrarAfiliacion()
         {
@@ -87,7 +93,6 @@ namespace Presentacion
         }
         static void MostrarDatos()
         {
-            Console.Clear();
             if (afiliadoServices.ConsultarTodos().listaVacia == true)
             {
                 Console.WriteLine(afiliadoServices.ConsultarTodos().mensaje);
@@ -100,7 +105,27 @@ namespace Presentacion
                     Console.WriteLine(item.ImprimirDatos());
                 }
             }
+            Console.WriteLine("presione una tecla para continuar");
             Console.ReadKey();
+        }
+        static void EliminarAfiliado()
+        {
+            Console.Clear();
+            if (afiliadoServices.ConsultarTodos().afiliaciones != null)
+            {
+                Console.WriteLine("LISTA DE DATOS AL MOMENTO");
+                MostrarDatos();
+                int identificaionEliminar;
+                Console.Write("\ndigite la identificacion de la liquidacion a eliminar: ");
+                identificaionEliminar = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(afiliadoServices.EliminarLiquidacion(identificaionEliminar));
+                Console.WriteLine("---LISTA DE DATOS AL ACTUALIZADA---");
+                MostrarDatos();
+            }
+            else
+            {
+                Console.WriteLine("no hay elementos en la lista");
+            }
         }
     }
 }

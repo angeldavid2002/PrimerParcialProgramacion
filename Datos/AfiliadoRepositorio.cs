@@ -85,6 +85,23 @@ namespace Datos
 
             return afiliado;
         }
+        private bool EsEncontrado(int identificacioRegistrada, int identificacionBuscada)
+        {
+            return identificacioRegistrada == identificacionBuscada;
+        }
+        public void Eliminar(int identificacion)
+        {
+            List<Afiliado> afiliaciones = ConsultarTodos();
+            FileStream file = new FileStream(FileName, FileMode.Create);
+            file.Close();
+            foreach (var item in afiliaciones)
+            {
+                if (!EsEncontrado(item.numeroLiquidacion, identificacion))
+                {
+                    Guardar(item);
+                }
+            }
+        }
 
     }
 }
